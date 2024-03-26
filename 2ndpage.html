@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Renzy Munar</title>
+  <link rel="stylesheet" href="refresh.css">
+  <style>
+    /* Additional CSS for contact page */
+    body {
+      background-color: #1a1a1a;
+      font-family: 'Poppins', sans-serif;
+      color: #008080;
+      margin: 0; /* Reset default margin */
+      text-align: center;
+    }
+
+    header{
+      z-index: 100;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Move to center */
+      background-color: transparent; /* Set a semi-transparent background color for the container */
+      width: 70%;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Center contents vertically */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    section#contact {
+      color: whitesmoke;
+      width: 100%; /* Adjust width to fit container */
+      max-width: 500px; /* Set max-width for responsiveness */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Navigation styles */
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 5%;
+      font-size: 16px;
+      font-weight: bold;
+      z-index: 1; /* Ensure navigation is on top of the canvas */
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+    nav ul li a {
+      color: #00cccc;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00cccc;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::before {
+      width: 100%;
+    }
+
+    /* Contact form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label,
+form input,
+form textarea {
+  margin-bottom: 10px;
+}
+
+form input,
+form textarea {
+  width: calc(100% - 10%); /* Adjust width to 90% */
+  padding: 12px; /* Increase padding */
+  background-color: transparent; /* Set background to transparent */
+  border: 2px solid cyan; /* Set border to transparent initially */
+  border-radius: 8px; /* Add slight border radius */
+  outline: none; /* Remove default focus outline */
+  margin-right: 20px;
+}
+
+form input[type="submit"] {
+  width: auto;
+  align-self: flex-start;
+  padding: 12px 24px; /* Increase padding */
+  background-color: transparent; /* Set background to transparent */
+  border: 2px solid cyan; /* Set border to transparent initially */
+  border-radius: 8px; /* Add slight border radius */
+  color: #00cccc; /* Change text color */
+  font-weight: bold; /* Make text bold */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add transition effect */
+  position: relative;
+}
+
+/* Neon cyan gradient border */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form input[type="submit"] {
+  background-clip: padding-box; /* Ensure gradient applies to border area */
+}
+
+/* Neon cyan gradient border effect */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus,
+form input[type="submit"]:hover {
+  border-image: linear-gradient(to right, #00cccc, #00e6e6); /* Neon cyan gradient border */
+  border-image-slice: 1; /* Ensure entire border is affected by gradient */
+}
+
+/* Squiggly border animation */
+@keyframes squiggle {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(2px);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Rounder input on hover and focus */
+form input[type="text"]:hover,
+form input[type="email"]:hover,
+form input[type="tel"]:hover,
+form textarea:hover,
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+  border-radius: 20px; /* Make border-radius rounder */
+}
+
+/* Center align submit button */
+form input[type="submit"] {
+  width: auto;
+  align-self: center; /* Align button to center */
+}
+
+/* Add transition to input and button hover */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form input[type="submit"] {
+  transition: border-radius 0.3s ease; /* Add transition effect */
+}
+
+/* Apply animation to input fields when focused */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+  animation: squiggle 0.5s ease-in-out;
+}
+
+/* Input field styles */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+  width: calc(100% - 10%);
+  padding: 12px;
+  background-color: transparent; /* Set background to transparent */
+  border: 2px solid cyan;
+  border-radius: 8px;
+  outline: none;
+  margin-right: 20px;
+  color: cyan; /* Set text color to cyan */
+}
+
+
+/* Adjust placeholder color */
+form input[type="text"]::placeholder,
+form input[type="email"]::placeholder,
+form input[type="tel"]::placeholder,
+form textarea::placeholder {
+  color: cyan; /* Set placeholder color to cyan */
+}
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="refresh.html">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="2ndpage.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Background canvas -->
+  <canvas id="backgroundCanvas"></canvas>
+  <header>
+    <p><span class="renzy">Renzy</span> <span class="munar">Munar</span></p>
+  </header>
+  <!-- Main container -->
+  <div class="container">
+    <!-- Header -->
+   
+
+    <!-- Contact Form -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <div style="display: flex;">
+          <input type="text" id="fname" name="fname" placeholder="First Name" style="width: 50%;">
+          <input type="text" id="lname" name="lname" placeholder="Last Name" style="width: 50%;">
+        </div>
+        <div style="display: flex;">
+          <input type="tel" id="phone" name="phone" placeholder="Phone" style="width: 48%;">
+          <input type="email" id="email" name="email" placeholder="Email" style="width: 48%;">
+        </div>
+        <textarea id="message" name="message" rows="4" placeholder="Message"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+    </section>
+  </div>
+
+  <!-- Script for animated background -->
+  <script src="2ndpage.js"></script>
+  <form action="send_email.php" method="post"></form>
+</body>
+
+</html>

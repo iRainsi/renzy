@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Renzy Munar</title>
+  <link rel="stylesheet" href="refresh.css">
+  <style>
+    /* Additional CSS for contact sublist */
+    nav ul ul {
+      display: none;
+      /* Hide contact sublist by default */
+      position: absolute;
+      background-color: #fff;
+      /* Background color for contact sublist */
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul li:hover ul {
+      display: block;
+      /* Show contact sublist when hovering over parent list item */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="refresh.html">About Me</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="2ndpage.html">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <p><span class="renzy">Renzy</span> <span class="munar">Munar</span></p>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+      <p>Hello, I'm</p>
+      <p>Renzy Munar</p>
+      <p id="role">And I'm a <span class="role-text"></span></p>
+      <p>I'm a web designer with freelancing experience and a background in IT. With a blend of creative design skills
+        and technical expertise, I bring unique insights to every project. From crafting visually captivating websites
+        to solving complex technical challenges, I'm dedicated to delivering high-quality results that exceed
+        expectations.</p>
+      <a href="your-cv.pdf" download class="button">Download CV</a>
+    </section>
+
+    <!-- Profile Picture -->
+    <img src="propic-removebg-preview.png" alt="Your Profile Picture" class="profile-picture" id="profilePic">
+    <canvas id="backgroundCanvas"></canvas>
+  </div>
+
+  <div class="copyright">
+    <span>&#169; Renzy Munar, 2024.</span>
+  </div>
+
+  <script src="refresh.js"></script>
+</body>
+
+</html>
